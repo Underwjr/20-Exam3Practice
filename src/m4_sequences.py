@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Jairyq Underwood.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -39,7 +39,7 @@ def main():
     run_test_practice_problem4a()
     run_test_practice_problem4b()
     run_test_practice_problem4c()
-    run_test_practice_problem4d()
+    # run_test_practice_problem4d()
 
 
 def is_prime(n):
@@ -134,8 +134,18 @@ def practice_problem4a(sequence):
     Type hints:
       :type sequence: list | tuple | string
     """
+    next_seq = []
+    copy_seq = []
+    for k in range(len(sequence)):
+        copy_seq.append(sequence[k])
+
+    for i in range(1, len(copy_seq)):
+        if copy_seq[i - 1] == copy_seq[i]:
+            next_seq.append(i - 1)
+            # print(next_seq)
+    return next_seq
     ###########################################################################
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -197,8 +207,13 @@ def practice_problem4b(sequence):
     Type hints:
       :type sequence: (list | tuple) of (float | int)
     """
+    total = -9999999999
+    for k in range(0, len(sequence), 2):
+        if sequence[k] > total:
+            total = sequence[k]
+    return total
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -295,8 +310,20 @@ def practice_problem4c(points):
       :type points: tuple of rg.Point
       :rtype: rg.Point | string
     """
+    answer = 'Not found'
+    new_list = points
+    for k in range(len(new_list)):
+        if is_prime(new_list[k].x) and is_prime(new_list[k].y):
+            change1 = new_list[k].x
+            change2 = new_list[k].y
+            new_list[k].x = change2
+            new_list[k].y = change1
+            new_point = rg.Point(new_list[k].x, new_list[k].y)
+            return new_point
+    return answer
+
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPORTANT: This problem is your LOWEST PRIORITY for preparing
