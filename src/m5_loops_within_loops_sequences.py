@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Jairyq Underwood.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -39,7 +39,7 @@ def main():
 def run_test_integers():
     """ Tests the    integers    function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # Done: 2. Implement this TEST function.
     #   It TESTS the  integers  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     #
@@ -59,6 +59,7 @@ def run_test_integers():
     print('--------------------------------------------------')
 
     # Test 1:
+    print('Test 1:')
     expected = [3, 1, 4, 10, 10, 1, 3, 4, 30, -4]
     answer = integers([(3, 1, 4),
                        (10, 'hi', 10),
@@ -71,6 +72,32 @@ def run_test_integers():
                        ])
     print('Expected is:', expected)
     print('Actual is:  ', answer)
+    print('')
+
+    # Test 2:
+    print('Test 2:')
+    expected = [2, 5, 8, 20, 1, 4, 7, 9, 23, 3]
+    answer = integers([(2, 5, 8),
+                       (20, 'hello', 2.5),
+                       (1, 4, 5.0, 7, 9),
+                       [23, 'e', 3]
+                       ])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
+    print('')
+
+    # Test 3:
+    print('Test 3:')
+    expected = [1, 4, 67, 5, 0, 2, 5, 2, 5, 9, 4]
+    answer = integers([[1, 4, 67],
+                       ('he', 'we', 5),
+                       [], [0, 2, 5],
+                       (2, 5, 9),
+                       ['hi', 4, 'hejejgb']
+                       ])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
+    print('')
 
 
 def integers(sequence_of_sequences):
@@ -95,8 +122,14 @@ def integers(sequence_of_sequences):
       :type sequence_of_sequences: (list|tuple) of (list|tuple|string)
       :rtype: list of int
     """
+    new_list = []
+    for k in range(len(sequence_of_sequences)):
+        for j in range(len(sequence_of_sequences[k])):
+            if type(sequence_of_sequences[k][j]) == int:
+                new_list.append(sequence_of_sequences[k][j])
+    return new_list
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     ###########################################################################
@@ -189,8 +222,15 @@ def big_letters(sequence_of_sequences):
 
     Precondition:  the given argument is a sequence of sequences.
     """
+    new_string = ''
+    for k in range(len(sequence_of_sequences)):
+        for j in range(len(sequence_of_sequences[k])):
+            if type(sequence_of_sequences[k]) == str:
+                if sequence_of_sequences[k][j].isupper():
+                    new_string += sequence_of_sequences[k][j]
+    return new_string
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # Done: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     ###########################################################################
